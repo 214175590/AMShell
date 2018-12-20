@@ -1,0 +1,525 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F22D235F-F2FE-43D9-AAD5-6D695ADB556E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AppMonitor</RootNamespace>
+    <AssemblyName>AppMonitor</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>ssh.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CSkin">
+      <HintPath>F:\WorkSpace\CSharpWorkspace\WeiXinRobot\WeiXinRobot\bin\Release\CSkin.dll</HintPath>
+    </Reference>
+    <Reference Include="FastColoredTextBox">
+      <HintPath>..\..\publicDLL\FastColoredTextBox.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\publicDLL\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\publicDLL\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.InteropServices.APIs">
+      <HintPath>..\..\publicDLL\System.Runtime.InteropServices.APIs.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.TreeListView">
+      <HintPath>..\..\publicDLL\System.Windows.Forms.TreeListView.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="TabStrip">
+      <HintPath>..\..\publicDLL\TabStrip.dll</HintPath>
+    </Reference>
+    <Reference Include="Tamir.SharpSSH, Version=1.1.1.13, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\SoftResource\CSharp\publicDLL\Tamir.SharpSSH.dll</HintPath>
+    </Reference>
+    <Reference Include="YSTools">
+      <HintPath>..\..\publicDLL\YSTools.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bex\AppConfig.cs" />
+    <Compile Include="Bex\Command.cs" />
+    <Compile Include="Bex\ControlUtil.cs" />
+    <Compile Include="Bex\DefaultConfig.cs" />
+    <Compile Include="Bex\FILEATTR.cs" />
+    <Compile Include="Bex\HelpData.cs" />
+    <Compile Include="Bex\HttpUtil.cs" />
+    <Compile Include="Bex\KeysUtil.cs" />
+    <Compile Include="Bex\ShellForm.cs" />
+    <Compile Include="Bex\SkinUtil.cs" />
+    <Compile Include="Froms\AboutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Froms\AboutForm.Designer.cs">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Froms\FileAttrForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Froms\FileAttrForm.Designer.cs">
+      <DependentUpon>FileAttrForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Froms\InputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Froms\InputForm.Designer.cs">
+      <DependentUpon>InputForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Froms\IceMonitorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Froms\IceMonitorForm.Designer.cs">
+      <DependentUpon>IceMonitorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Froms\TextFindForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Froms\TextFindForm.Designer.cs">
+      <DependentUpon>TextFindForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ListBoxItem.cs" />
+    <Compile Include="Model\SshUser.cs" />
+    <Compile Include="Bex\Utils.cs" />
+    <Compile Include="Bex\Win32.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Froms\CustomScriptForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Froms\CustomScriptForm.Designer.cs">
+      <DependentUpon>CustomScriptForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Froms\FullScreenMonitorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Froms\FullScreenMonitorForm.Designer.cs">
+      <DependentUpon>FullScreenMonitorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Froms\InputSshPwdForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Froms\InputSshPwdForm.Designer.cs">
+      <DependentUpon>InputSshPwdForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Froms\LockForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Froms\LockForm.Designer.cs">
+      <DependentUpon>LockForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Froms\MonitorBaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Froms\MonitorBaseForm.Designer.cs">
+      <DependentUpon>MonitorBaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Froms\MonitorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Froms\MonitorForm.Designer.cs">
+      <DependentUpon>MonitorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Froms\MonitorItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Froms\MonitorItemForm.Designer.cs">
+      <DependentUpon>MonitorItemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Froms\NginxMappingItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Froms\NginxMappingItemForm.Designer.cs">
+      <DependentUpon>NginxMappingItemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Froms\NginxMonitorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Froms\NginxMonitorForm.Designer.cs">
+      <DependentUpon>NginxMonitorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Froms\SessionManageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Froms\SessionManageForm.Designer.cs">
+      <DependentUpon>SessionManageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Froms\SettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Froms\SettingForm.Designer.cs">
+      <DependentUpon>SettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Froms\ShellHelpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Froms\ShellHelpForm.Designer.cs">
+      <DependentUpon>ShellHelpForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Froms\SpringBootMonitorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Froms\SpringBootMonitorForm.Designer.cs">
+      <DependentUpon>SpringBootMonitorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Froms\QuickCommandManageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Froms\QuickCommandManageForm.Designer.cs">
+      <DependentUpon>QuickCommandManageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Froms\SshSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Froms\SshSettingForm.Designer.cs">
+      <DependentUpon>SshSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Froms\TextEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Froms\TextEditorForm.Designer.cs">
+      <DependentUpon>TextEditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Froms\ConditionTaskForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Froms\ConditionTaskForm.Designer.cs">
+      <DependentUpon>ConditionTaskForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Froms\TimedTaskForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Froms\TimedTaskForm.Designer.cs">
+      <DependentUpon>TimedTaskForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Froms\TomcatMonitorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Froms\TomcatMonitorForm.Designer.cs">
+      <DependentUpon>TomcatMonitorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MessageUtils.cs" />
+    <Compile Include="Model\CmdShell.cs" />
+    <Compile Include="Model\MonitorItem.cs" />
+    <Compile Include="Model\TransferItem.cs" />
+    <Compile Include="Plugin\CentralServerConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plugin\CentralServerConfigForm.Designer.cs">
+      <DependentUpon>CentralServerConfigForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plugin\IceDeployVersionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plugin\IceDeployVersionForm.Designer.cs">
+      <DependentUpon>IceDeployVersionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plugin\CustomShellForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plugin\CustomShellForm.Designer.cs">
+      <DependentUpon>CustomShellForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plugin\MyProgressMonitor.cs" />
+    <Compile Include="Plugin\SftpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plugin\SftpForm.Designer.cs">
+      <DependentUpon>SftpForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plugin\SftpLinuxForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plugin\SftpLinuxForm.Designer.cs">
+      <DependentUpon>SftpLinuxForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plugin\SftpWinForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plugin\SftpWinForm.Designer.cs">
+      <DependentUpon>SftpWinForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plugin\YmlFormatUtil.cs" />
+    <Compile Include="Plugin\YmlItem.cs" />
+    <Compile Include="Plugin\YmlNodeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plugin\YmlNodeForm.Designer.cs">
+      <DependentUpon>YmlNodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TextBoxWriter.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Froms\AboutForm.resx">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Froms\CustomScriptForm.resx">
+      <DependentUpon>CustomScriptForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Froms\FileAttrForm.resx">
+      <DependentUpon>FileAttrForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Froms\FullScreenMonitorForm.resx">
+      <DependentUpon>FullScreenMonitorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Froms\InputForm.resx">
+      <DependentUpon>InputForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Froms\InputSshPwdForm.resx">
+      <DependentUpon>InputSshPwdForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Froms\LockForm.resx">
+      <DependentUpon>LockForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Froms\MonitorBaseForm.resx">
+      <DependentUpon>MonitorBaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Froms\MonitorForm.resx">
+      <DependentUpon>MonitorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Froms\MonitorItemForm.resx">
+      <DependentUpon>MonitorItemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Froms\NginxMappingItemForm.resx">
+      <DependentUpon>NginxMappingItemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Froms\NginxMonitorForm.resx">
+      <DependentUpon>NginxMonitorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Froms\SessionManageForm.resx">
+      <DependentUpon>SessionManageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Froms\SettingForm.resx">
+      <DependentUpon>SettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Froms\ShellHelpForm.resx">
+      <DependentUpon>ShellHelpForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Froms\IceMonitorForm.resx">
+      <DependentUpon>IceMonitorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Froms\SpringBootMonitorForm.resx">
+      <DependentUpon>SpringBootMonitorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Froms\QuickCommandManageForm.resx">
+      <DependentUpon>QuickCommandManageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Froms\SshSettingForm.resx">
+      <DependentUpon>SshSettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Froms\TextEditorForm.resx">
+      <DependentUpon>TextEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Froms\ConditionTaskForm.resx">
+      <DependentUpon>ConditionTaskForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Froms\TextFindForm.resx">
+      <DependentUpon>TextFindForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Froms\TimedTaskForm.resx">
+      <DependentUpon>TimedTaskForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Froms\TomcatMonitorForm.resx">
+      <DependentUpon>TomcatMonitorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plugin\CentralServerConfigForm.resx">
+      <DependentUpon>CentralServerConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plugin\IceDeployVersionForm.resx">
+      <DependentUpon>IceDeployVersionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plugin\CustomShellForm.resx">
+      <DependentUpon>CustomShellForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plugin\SftpForm.resx">
+      <DependentUpon>SftpForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plugin\SftpLinuxForm.resx">
+      <DependentUpon>SftpLinuxForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plugin\SftpWinForm.resx">
+      <DependentUpon>SftpWinForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plugin\YmlNodeForm.resx">
+      <DependentUpon>YmlNodeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\closeConn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\encoding.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\font.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ftp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fullScreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lookAttr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newSession.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\openSession.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paste.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reConn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\theme.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\users.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\locks.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ssh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\monitor.png" />
+    <None Include="Resources\skin_02.png" />
+    <None Include="Resources\skin_04.png" />
+    <None Include="Resources\skin_12.png" />
+    <Content Include="ftp_64px.ico" />
+    <Content Include="qd64.ico" />
+    <None Include="Resources\Circle_72px1.png" />
+    <None Include="Resources\Circle_72px0.png" />
+    <None Include="Resources\Circle_72px2.png" />
+    <Content Include="Resources\custom_24px.png" />
+    <None Include="Resources\folder_16px.png" />
+    <None Include="Resources\filen_64px.png" />
+    <None Include="Resources\folder_64px.png" />
+    <None Include="Resources\filen_16px.png" />
+    <None Include="Resources\gray_light_16px.png" />
+    <Content Include="Resources\gray_light_48.png" />
+    <None Include="Resources\green_light_16px.png" />
+    <Content Include="Resources\green_light_48.png" />
+    <None Include="Resources\MB_light_16px.png" />
+    <None Include="Resources\loading2.gif" />
+    <Content Include="Resources\one_16px.png" />
+    <Content Include="Resources\org_light_48.png" />
+    <Content Include="Resources\pageDown.png" />
+    <Content Include="Resources\pageHover.png" />
+    <Content Include="Resources\pageNomal.png" />
+    <None Include="Resources\remove_16px.png" />
+    <None Include="Resources\Save_all_16px.png" />
+    <Content Include="Resources\parent_24px.png" />
+    <Content Include="Resources\refresh_24px.png" />
+    <Content Include="Resources\sxzy_16px.png" />
+    <Content Include="Resources\sx_16px.png" />
+    <Content Include="Resources\Terminal_24px.png" />
+    <None Include="Resources\view_16px.png" />
+    <None Include="Resources\wait063.gif" />
+    <Content Include="Resources\write_16px.png" />
+    <None Include="Resources\yxkj.png" />
+    <None Include="Resources\yellow_light_16px.png" />
+    <Content Include="Resources\zy_16px.png" />
+    <Content Include="ssh.ico" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

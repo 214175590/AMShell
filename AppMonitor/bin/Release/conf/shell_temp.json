@@ -1,0 +1,65 @@
+{
+    "task_shell_temp": {
+        "springboot": {
+            "build": "{sh_bin_dir}/{build_sh_file}",
+            "stop": "{sh_bin_dir}/{ctl_sh_file} stop",
+            "start": "{sh_bin_dir}/{ctl_sh_file} start",
+            "restart": "{sh_bin_dir}/{ctl_sh_file} restart"
+        },
+        "tomcat": {
+            "start": "{tomcat_dir}/bin/startup.sh",
+            "stop": "{tomcat_dir}/bin/shutdown.sh",
+            "version": "{tomcat_dir}/bin/catalina.sh version",
+            "configtest": "{tomcat_dir}/bin/catalina.sh configtest"
+        },
+        "nginx": {
+            "start": "{nginx_path} -s start",
+            "stop": "{nginx_path} -s stop",
+            "reload": "{nginx_path} -s reload"
+        }
+    },
+    "vars_temp": {
+        "springboot": [{
+            "value": "sh_bin_dir",
+            "desc": "sh脚本文件目录"
+        }, {
+            "value": "build_sh_file",
+            "desc": "**_build.sh文件名称"
+        }, {
+            "value": "ctl_sh_file",
+            "desc": "**_ctl.sh文件名称"
+        }, {
+            "value": "project_dir",
+            "desc": "项目代码目录"
+        }],
+        "tomcat": [{
+            "value": "tomcat_dir",
+            "desc": "tomcat目录"
+        }, {
+            "value": "tomcat_webapps",
+            "desc": "tomcat webapps目录"
+        }, {
+            "value": "tomcat_logs",
+            "desc": "tomcat logs目录"
+        }, {
+            "value": "tomcat_startup",
+            "desc": "tomcat启动脚本文件"
+        }, {
+            "value": "tomcat_shutdown",
+            "desc": "tomcat停止脚本文件"
+        }],
+        "nginx": [{
+            "value": "nginx_dir",
+            "desc": "Nginx目录"
+        }, {
+            "value": "nginx",
+            "desc": "nginx执行文件路径"
+        }]
+    },
+    "condition_temp": {
+	"d1": "无法访问",
+	"d2": "没有运行",
+	"d3": "访问正常",
+	"d4": "运行正常"
+    }
+}

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Linux</title>
+ </head>
+ <style type="text/css">
+	html, body {width: 100%; height: 100%;padding: 0; margin: 0;}
+	body {background: #444444; color: #dddddd; }
+	* {font-family: '微软雅黑'}
+	.bash {
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		color: #009900;
+	}
+ </style>
+ <body>
+
+<p>显示当前目录路径<br>
+<span class="bash">[root@localhost ~]$ </span><font color="#ffff66">pwd</font><br>
+</p>
+
+<p>更改服务器目录到“路径”：<br>
+<span class="bash">[root@localhost ~]$ </span><font color="#ffff66">cd </font><font color="#ff6600">[path]</font><br>
+</p>
+
+<p>在服务器路径下创建“目录”：<br>
+<span class="bash">[root@localhost ~]$ </span><font color="#ffff66">mkdir </font><font color="#ff6600">[path]</font><br>
+</p>
+
+<p>删除服务器文件或目录：<br>
+<span class="bash">[root@localhost ~]$ </span><font color="#ffff66">rm </font><font color="#ff6600">[path]</font><br>
+<span class="bash">[root@localhost ~]$ </span><font color="#ffff66">rm -rf </font><font color="#ff6600">[path]</font><br>
+<span class="bash">[root@localhost ~]$ </span><font color="#ffff66">rm --help</font><br>
+</p>
+
+<p>重命名或移动文件/目录：<br>
+<span class="bash">[root@localhost ~]$ </span><font color="#ffff66">mv </font><font color="#ff6600">[path]</font> <font color="#ff6600">[new path]</font><br>
+<span class="bash">[root@localhost ~]$ </span><font color="#ffff66">mv </font><font color="#ff6600">[name]</font> <font color="#ff6600">[new name]</font><br>
+</p>
+
+<p>端口占用查询：<br>
+<span class="bash">[root@localhost ~]$ </span><font color="#ffff66">netstat –apn | grep </font><font color="#ff6600">[port]</font><br>
+<span class="bash">[root@localhost ~]$ </span><font color="#ffff66">lsof -i:</font><font color="#ff6600">[port]</font><br>
+</p>
+
+<p>新增用户：<br>
+<span class="bash">[root@localhost ~]$ </span><font color="#ffff66">useradd </font><font color="#ff6600">[acc]</font><br>
+<span class="bash">[root@localhost ~]$ </span><font color="#ffff66">passwd </font><font color="#ff6600">[acc]</font><br>
+</p>
+
+<p>安装zip 、unzip 命令组件<br>
+<span class="bash">[root@localhost ~]$ </span><font color="#ffff66">yum install -y unzip zip</font>
+</p>
+
+<p>把文件授权给当前用户<br>
+<span class="bash">[root@localhost ~]$ </span><font color="#ffff66">chmod +x <font color="#ff6600">[file]</font></font>
+</p>
+
+<p>文件权限转移<br>
+<span class="bash">[root@localhost ~]$ </span><font color="#ffff66">chown <font color="#ff6600">[username]</font>:<font color="#ff6600">[username]</font> <font color="#ff33ff">[file]</font></font><br>
+<span class="bash">[root@localhost ~]$ </span><font color="#ffff66">chown -R <font color="#ff6600">[username]</font>:<font color="#ff6600">[username]</font> <font color="#ff33ff">[file]</font></font>
+</p>
+
+<p>关闭Conter Os系统防火墙<br>
+<span class="bash">[root@localhost ~]$ </span><font color="#ffff66">systemctl stop firewalld.service</font>
+</p>
+
+<p>快速开放端口（重启后失效）：<br>
+<span class="bash">[root@localhost ~]$ </span><font color="#ffff66">iptables -I INPUT -p tcp --dport <font color="#ff6600">[port]</font> -j ACCEPT</font>
+</p>
+
+
+<p>解压：<br>
+<font color="#999933">//解压 tar包</font><br>
+<span class="bash">[root@localhost ~]$ </span><font color="#ffff66">tar –xvf </font><font color="#ff6600">[*.tar]</font><br>
+<font color="#999933">//解压tar.gz</font><br>
+<span class="bash">[root@localhost ~]$ </span><font color="#ffff66">tar -xzvf </font><font color="#ff6600">[*.tar.gz]</font><br>
+<font color="#999933">//解压 tar.bz2</font><br>
+<span class="bash">[root@localhost ~]$ </span><font color="#ffff66">tar -xjvf </font><font color="#ff6600">[*.tar.bz2]</font><br>
+<font color="#999933">//解压tar.Z</font><br>
+<span class="bash">[root@localhost ~]$ </span><font color="#ffff66">tar –xZvf </font><font color="#ff6600">[*.tar.Z]</font><br>
+<font color="#999933">//解压rar</font><br>
+<span class="bash">[root@localhost ~]$ </span><font color="#ffff66">unrar e </font><font color="#ff6600">[*.rar]</font><br>
+<font color="#999933">//解压zip</font><br>
+<span class="bash">[root@localhost ~]$ </span><font color="#ffff66">unzip </font><font color="#ff6600">[*.zip]</font><br>
+<br>
+<font color="#6699cc">
+1、<font color="#999933">*.tar</font> 用<font color="#ffff66">tar –xvf</font> 解压<br>
+2、<font color="#999933">*.gz</font> 用<font color="#ffff66">gzip -d</font>或者<font color="#ffff66">gunzip</font> 解压<br>
+3、<font color="#999933">*.tar.gz</font>和<font color="#999933">*.tgz</font> 用<font color="#ffff66">tar –xzf</font> 解压<br>
+4、<font color="#999933">*.bz2</font> 用<font color="#ffff66">bzip2 -d</font>或者用<font color="#ffff66">bunzip2</font> 解压<br>
+5、<font color="#999933">*.tar.bz2</font> 用<font color="#ffff66">tar –xjf</font> 解压<br>
+6、<font color="#999933">*.Z</font> 用<font color="#ffff66">uncompress</font> 解压<br>
+7、<font color="#999933">*.tar.Z</font> 用<font color="#ffff66">tar –xZf</font> 解压<br>
+8、<font color="#999933">*.rar</font> 用<font color="#ffff66">unrar e</font> 解压<br>
+9、<font color="#999933">*.zip</font> 用<font color="#ffff66">unzip</font> 解压<br>
+</font>
+</p>
+
+ </body>
+</html>

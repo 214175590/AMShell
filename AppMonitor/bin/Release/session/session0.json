@@ -1,0 +1,27 @@
+{
+  "Index": 1,
+  "SessionId": "S1517569644943",
+  "Name": "192.168.20.32",
+  "Host": "192.168.20.32",
+  "Port": 22,
+  "Protocol": "SSH",
+  "Method": "Password",
+  "UserName": "gxyj",
+  "Password": "t3V61pM3v73VyQXFLUpjT2AmLEEZRGca6xs9WW3/lEo=",
+  "RemenberPwd": true,
+  "CentralServerConfigDir": "",
+  "Theme": {
+    "ColorScheme": "Default Scheme",
+    "FontName": "Courier New",
+    "FontSize": 11
+  },
+  "MonitorConfigList": [],
+  "CustomShellList": [],
+  "ShellList": [
+    "ps -ef | grep tomcat&",
+    "ps -ef | grep java&",
+    "tailf ../logs/[name].{date}.log",
+    "scp [user]@[host]:[filepath] [filepath]",
+    "rm -rf [file/dir]"
+  ]
+}
